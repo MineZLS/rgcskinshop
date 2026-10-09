@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RGC Special Offers</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --rgc-blue:#0094ff;
+  --rgc-red:#e63946;
+  --rgc-gold:#ffc107;
+  --bg:#1b2025;
+  --panel:#12171b;
+  --text:#f5f5f5;
+  --dim:#b8bec5;
+}
+
+html,body{min-height:100%;}
+body{
+  background:
+    radial-gradient(circle at 50% 20%, rgba(0,148,255,.035), transparent 28%),
+    radial-gradient(circle at 50% 65%, rgba(230,57,70,.025), transparent 35%),
+    var(--bg);
+  color:var(--text);
+  font-family:Georgia,"Times New Roman",serif;
+  line-height:1.55;
+  overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit}
+
+
+/* ===== Main ===== */
+.page{
+  width:min(100%, 860px);
+  margin:0 auto;
+  padding:14px 18px 40px;
+}
+.banner-wrap{
+  position:relative;
+  margin:0 auto 28px;
+  width:min(100%, 700px);
+  overflow:hidden;
+  box-shadow:0 0 24px rgba(0,0,0,.24);
+}
+.banner-wrap img{width:100%;display:block}
+.banner-wrap::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(105deg,transparent 25%,rgba(255,255,255,.20) 48%,rgba(255,255,255,.07) 53%,transparent 70%);
+  transform:translateX(-120%);
+  animation:bannerSweep 6s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes bannerSweep{
+  0%,35%{transform:translateX(-120%);opacity:0}
+  45%{opacity:1}
+  65%,100%{transform:translateX(120%);opacity:0}
+}
+
+/* ===== Special Offer Banner: Electric Storm / Thunder Lightning ===== */
+.special-offer-banner{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+}
+
+.special-offer-banner > img{
+  position:relative;
+  z-index:2;
+}
+
+/* Full-frame storm flash: the whole image briefly lights up like a real lightning strike */
+.special-offer-banner .storm-flash{
+  position:absolute;
+  inset:0;
+  z-index:8;
+  pointer-events:none;
+  background:rgba(255,255,255,0);
+  mix-blend-mode:screen;
+  animation:stormFlash 5.8s infinite;
+}
+
+/* Branching lightning is drawn as real jagged SVG paths rather than geometric beams */
+.special-offer-banner .storm-lightning{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  z-index:10;
+  pointer-events:none;
+  overflow:visible;
+  mix-blend-mode:screen;
+}
+
+.storm-lightning .bolt-glow{
+  fill:none;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  stroke-width:7;
+  opacity:0;
+  filter:blur(7px);
+}
+
+.storm-lightning .bolt-core{
+  fill:none;
+  stroke:#fff;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  stroke-width:2.2;
+  opacity:0;
+  filter:drop-shadow(0 0 4px rgba(255,255,255,.95));
+}
+
+.storm-lightning .bolt-blue{stroke:#00a8ff;}
+.storm-lightning .bolt-gold{stroke:#ffd54a;}
+.storm-lightning .bolt-red{stroke:#ff5264;}
+
+/* Main strike: quick double flash, then branching aftershock */
+.storm-lightning .strike-a{
+  stroke-dasharray:420;
+  stroke-dashoffset:420;
+  animation:boltStrikeA 5.8s linear infinite;
+}
+.storm-lightning .strike-b{
+  stroke-dasharray:360;
+  stroke-dashoffset:360;
+  animation:boltStrikeB 5.8s linear infinite;
+}
+.storm-lightning .strike-c{
+  stroke-dasharray:300;
+  stroke-dashoffset:300;
+  animation:boltStrikeC 5.8s linear infinite;
+}
+.storm-lightning .branch{
+  stroke-dasharray:180;
+  stroke-dashoffset:180;
+  animation:boltBranch 5.8s linear infinite;
+}
+
+@keyframes boltStrikeA{
+  0%,70%{opacity:0;stroke-dashoffset:420}
+  72%{opacity:.9;stroke-dashoffset:250}
+  73%{opacity:1;stroke-dashoffset:0}
+  74%{opacity:.08}
+  75%{opacity:.95}
+  76%{opacity:.12}
+  78%{opacity:.7}
+  80%,100%{opacity:0;stroke-dashoffset:0}
+}
+
+@keyframes boltStrikeB{
+  0%,72%{opacity:0;stroke-dashoffset:360}
+  73%{opacity:.75;stroke-dashoffset:0}
+  74%{opacity:.08}
+  75%{opacity:.85}
+  77%{opacity:.18}
+  79%{opacity:.55}
+  82%,100%{opacity:0;stroke-dashoffset:0}
+}
+
+@keyframes boltStrikeC{
+  0%,74%{opacity:0;stroke-dashoffset:300}
+  75%{opacity:.8;stroke-dashoffset:0}
+  76%{opacity:.05}
+  78%{opacity:.72}
+  80%{opacity:.12}
+  84%,100%{opacity:0;stroke-dashoffset:0}
+}
+
+@keyframes boltBranch{
+  0%,74%{opacity:0;stroke-dashoffset:180}
+  76%{opacity:.85;stroke-dashoffset:0}
+  77%{opacity:.08}
+  79%{opacity:.6}
+  83%,100%{opacity:0;stroke-dashoffset:0}
+}
+
+@keyframes stormFlash{
+  0%,70%,100%{opacity:0;background:rgba(255,255,255,0)}
+  72%{opacity:.16;background:rgba(255,255,255,.12)}
+  73%{opacity:.72;background:rgba(255,255,255,.42)}
+  74%{opacity:.08;background:rgba(255,255,255,.05)}
+  75%{opacity:.45;background:rgba(255,255,255,.24)}
+  77%{opacity:.12;background:rgba(255,255,255,.07)}
+  80%{opacity:0;background:rgba(255,255,255,0)}
+}
+
+/* A subtle colored electrical afterglow remains for a moment after the white strike */
+.special-offer-banner .storm-afterglow{
+  position:absolute;
+  inset:-15%;
+  z-index:7;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 24% 32%,rgba(0,148,255,.24),transparent 24%),
+    radial-gradient(circle at 57% 42%,rgba(255,193,7,.20),transparent 25%),
+    radial-gradient(circle at 82% 58%,rgba(230,57,70,.20),transparent 24%);
+  mix-blend-mode:screen;
+  opacity:0;
+  animation:stormAfterglow 5.8s ease-in-out infinite;
+}
+
+@keyframes stormAfterglow{
+  0%,69%,100%{opacity:0;transform:scale(.94)}
+  73%{opacity:.18;transform:scale(1)}
+  76%{opacity:.30;transform:scale(1.02)}
+  82%{opacity:.08;transform:scale(1.05)}
+  90%{opacity:0;transform:scale(1.08)}
+}
+
+@media(max-width:540px){
+  .storm-lightning .bolt-core{stroke-width:1.8}
+  .storm-lightning .bolt-glow{stroke-width:6}
+}
+
+/* ===== Offer Rows ===== */
+.offer{
+  position:relative;
+  display:grid;
+  grid-template-columns:350px 1fr;
+  gap:24px;
+  padding:0 0 18px;
+  margin-bottom:15px;
+  border-bottom:1px solid rgba(255,255,255,.68);
+}
+.offer::before{
+  content:"";
+  position:absolute;
+  left:-12px; right:-12px; top:-8px; bottom:4px;
+  border-radius:10px;
+  background:linear-gradient(90deg,rgba(0,148,255,.035),transparent 38%,rgba(230,57,70,.035));
+  opacity:0;
+  transition:.35s ease;
+  pointer-events:none;
+}
+.offer:hover::before{opacity:1}
+
+.offer-image{
+  position:relative;
+  overflow:hidden;
+  border-radius:2px;
+  background:#090b0e;
+  box-shadow:0 8px 18px rgba(0,0,0,.28);
+  transition:transform .4s ease,box-shadow .4s ease;
+}
+.offer-image img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+.offer-image::before{
+  content:"";
+  position:absolute;
+  top:-15%;
+  left:-75%;
+  width:42%;
+  height:130%;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.05),
+    rgba(255,255,255,.72),
+    rgba(255,255,255,.10),
+    transparent
+  );
+  transform:skewX(-18deg);
+  filter:blur(2px);
+  opacity:0;
+  z-index:3;
+  pointer-events:none;
+  animation:offerWhiteSweep 5.4s ease-in-out infinite;
+}
+.offer:nth-child(2) .offer-image::before{animation-delay:1.1s}
+.offer:nth-child(3) .offer-image::before{animation-delay:2.2s}
+@keyframes offerWhiteSweep{
+  0%,18%{left:-75%;opacity:0}
+  30%{opacity:.12}
+  43%{opacity:.88}
+  58%{opacity:.35}
+  78%,100%{left:145%;opacity:0}
+}
+.offer:hover .offer-image{
+  transform:translateX(5px) scale(1.015);
+  box-shadow:0 10px 26px rgba(0,148,255,.10),0 0 18px rgba(255,193,7,.07);
+}
+
+.offer-info{
+  padding-top:8px;
+  min-width:0;
+}
+.offer-title{
+  display:inline-block;
+  font-size:20px;
+  font-weight:bold;
+  font-style:italic;
+  text-decoration:underline;
+  margin-bottom:11px;
+  color:#fff;
+  text-shadow:0 0 7px rgba(255,255,255,.10);
+}
+.offer-desc{
+  font-size:14px;
+  color:#f1f1f1;
+  margin-bottom:9px;
+}
+.offer-line{
+  font-size:14px;
+  margin-bottom:7px;
+  color:#fff;
+}
+.offer-line strong{color:#fff}
+.offer-line .red{color:#ff3347}
+.offer-desc .gold-price{color:#ffc107;font-weight:700;text-shadow:0 0 7px rgba(255,193,7,.35)}
+.offer-note{
+  margin-top:28px;
+  padding-left:13px;
+  position:relative;
+  font-size:12px;
+  color:#fff400;
+}
+.offer-note::before{
+  content:"•";
+  position:absolute;
+  left:2px;
+  color:#fff400;
+}
+
+.offer:nth-of-type(2) .offer-image{box-shadow:0 8px 18px rgba(0,0,0,.28),0 0 16px rgba(0,148,255,.035)}
+
+/* ===== Small energy line between sections ===== */
+.energy-line{
+  height:1px;
+  width:100%;
+  margin:-3px 0 14px;
+  background:linear-gradient(90deg,transparent,rgba(0,148,255,.25),rgba(255,193,7,.75),rgba(230,57,70,.30),transparent);
+  position:relative;
+  overflow:hidden;
+}
+.energy-line::after{
+  content:"";
+  position:absolute;
+  top:0;left:-25%;
+  width:25%;height:1px;
+  background:#fff;
+  box-shadow:0 0 7px #fff,0 0 14px rgba(255,193,7,.9);
+  animation:energyMove 3.8s linear infinite;
+}
+@keyframes energyMove{
+  from{left:-25%}
+  to{left:125%}
+}
+
+/* ===== Footer ===== */
+footer{
+  width:min(100%, 860px);
+  margin:0 auto;
+  padding:3px 18px 28px;
+  text-align:center;
+  color:#858b91;
+  font-size:10px;
+}
+footer::before{
+  content:"";
+  display:block;
+  width:100%;
+  height:1px;
+  margin-bottom:14px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);
+}
+
+/* ===== Responsive ===== */
+@media(max-width:720px){
+  .page{padding-left:14px;padding-right:14px;}
+  .offer{grid-template-columns:280px 1fr;gap:18px;}
+}
+
+@media(max-width:540px){
+  .nav a:nth-child(n+6){display:none}
+  .offer{grid-template-columns:1fr;gap:11px}
+  .offer-image{max-width:100%}
+  .offer-info{padding:0 4px 3px}
+  .offer-title{font-size:18px}
+  .offer-desc,.offer-line{font-size:14px}
+  .offer-note{font-size:12px}
+}
+  .nav a:nth-child(n+4){display:none}
+  .search{display:none}
+}
+
+
+
+/* ===== Transparent Frosted Glass Frames ===== */
+.banner-wrap,
+.offer-image,
+.offer-info,
+.offer-title {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Main title banner glass frame */
+.banner-wrap {
+  padding: 4px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(255,255,255,.045), rgba(255,255,255,.012));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.12),
+    0 8px 24px rgba(0,0,0,.24);
+  transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+}
+.banner-wrap:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255,193,7,.55);
+  box-shadow:
+    0 12px 30px rgba(0,0,0,.32),
+    0 0 22px rgba(255,193,7,.10),
+    inset 0 1px 0 rgba(255,255,255,.20);
+}
+
+/* Offer image glass frame */
+.offer-image {
+  padding: 4px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(255,255,255,.055), rgba(255,255,255,.012));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.12),
+    0 8px 20px rgba(0,0,0,.30);
+  transition: transform .4s ease, border-color .4s ease, box-shadow .4s ease;
+}
+.offer-image:hover {
+  transform: translateX(6px) translateY(-5px) scale(1.018);
+  border-color: rgba(0,148,255,.65);
+  box-shadow:
+    0 14px 30px rgba(0,0,0,.34),
+    0 0 24px rgba(0,148,255,.12),
+    0 0 14px rgba(255,193,7,.08),
+    inset 0 1px 0 rgba(255,255,255,.20);
+}
+.offer-image img {
+  border-radius: 5px;
+}
+
+/* Text/content glass frame */
+.offer-info {
+  padding: 14px 15px 13px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 12px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.055), rgba(255,255,255,.012)),
+    rgba(10,14,18,.18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.10),
+    inset 0 0 18px rgba(255,255,255,.018),
+    0 8px 22px rgba(0,0,0,.20);
+  transition: transform .4s ease, border-color .4s ease, box-shadow .4s ease, background .4s ease;
+}
+.offer-info:hover {
+  transform: translateX(4px) translateY(-5px);
+  border-color: rgba(255,193,7,.58);
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.075), rgba(255,255,255,.018)),
+    rgba(10,14,18,.22);
+  box-shadow:
+    0 12px 28px rgba(0,0,0,.30),
+    0 0 22px rgba(255,193,7,.09),
+    0 0 14px rgba(0,148,255,.06),
+    inset 0 1px 0 rgba(255,255,255,.17);
+}
+
+/* Individual title glass frame */
+.offer-title {
+  padding: 5px 10px 6px;
+  margin: -1px 0 12px;
+  border: 1px solid rgba(255,255,255,.20);
+  border-radius: 7px;
+  background: linear-gradient(135deg, rgba(255,255,255,.075), rgba(255,255,255,.015));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.14),
+    0 4px 12px rgba(0,0,0,.14);
+  transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease, background .3s ease;
+}
+.offer-title:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255,193,7,.65);
+  background: linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.025));
+  box-shadow:
+    0 7px 16px rgba(0,0,0,.22),
+    0 0 15px rgba(255,193,7,.10),
+    inset 0 1px 0 rgba(255,255,255,.20);
+}
+
+/* Soft moving glass highlight on every frame */
+.banner-wrap::before,
+.offer-image::after,
+.offer-info::before,
+.offer-title::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: -90%;
+  width: 32%;
+  height: 140%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.04),
+    rgba(255,255,255,.32),
+    rgba(255,255,255,.06),
+    transparent
+  );
+  transform: skewX(-18deg);
+  filter: blur(3px);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 20;
+  animation: glassFrameSweep 6.5s ease-in-out infinite;
+}
+.offer-image::after { animation-delay: .7s; }
+.offer-info::before { animation-delay: 1.4s; }
+.offer-title::before { animation-delay: 2.1s; }
+
+@keyframes glassFrameSweep {
+  0%, 18% { left: -90%; opacity: 0; }
+  32% { opacity: .12; }
+  46% { opacity: .55; }
+  60% { opacity: .18; }
+  80%, 100% { left: 145%; opacity: 0; }
+}
+
+/* Keep the original image sweep above the new glass frame */
+.offer-image::before { z-index: 21; }
+
+@media(max-width:540px) {
+  .offer-info { padding: 13px 12px 12px; }
+  .offer-title { display: block; width: fit-content; max-width: 100%; }
+}
+
+
+
+/* ===== Unified Promotional Glass Frame =====
+   Image + content are one promotion, not separate cards. */
+.offer {
+  position: relative;
+  padding: 8px;
+  margin-bottom: 18px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 14px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.055), rgba(255,255,255,.012)),
+    rgba(8,12,16,.20);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.12),
+    inset 0 0 24px rgba(255,255,255,.018),
+    0 8px 24px rgba(0,0,0,.24);
+  transition: transform .45s ease, border-color .45s ease, box-shadow .45s ease, background .45s ease;
+  overflow: hidden;
+}
+
+.offer:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255,193,7,.62);
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.075), rgba(255,255,255,.018)),
+    rgba(8,12,16,.25);
+  box-shadow:
+    0 15px 34px rgba(0,0,0,.34),
+    0 0 26px rgba(255,193,7,.10),
+    0 0 18px rgba(0,148,255,.07),
+    inset 0 1px 0 rgba(255,255,255,.20);
+}
+
+/* unified blue-gold-red energy edge */
+.offer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  padding: 1px;
+  background: linear-gradient(110deg,
+    rgba(0,148,255,.0),
+    rgba(0,148,255,.42),
+    rgba(255,193,7,.72),
+    rgba(230,57,70,.42),
+    rgba(0,148,255,.0)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: .30;
+  pointer-events: none;
+  animation: unifiedOfferBorder 5s linear infinite;
+}
+.offer:nth-of-type(2)::after { animation-delay: 1.6s; }
+.offer:nth-of-type(3)::after { animation-delay: 3.2s; }
+
+@keyframes unifiedOfferBorder {
+  0%,100% { opacity: .18; transform: translateX(-2%); }
+  50% { opacity: .62; transform: translateX(2%); }
+}
+
+/* image and content belong visually to the same frame */
+.offer-image,
+.offer-info {
+  border: 0 !important;
+  border-radius: 8px;
+  box-shadow: none !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  transform: none !important;
+}
+
+.offer-image {
+  padding: 0;
+  overflow: hidden;
+}
+
+.offer-image:hover {
+  transform: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.offer-info {
+  padding: 12px 14px 10px;
+}
+
+.offer-info:hover {
+  transform: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+/* title is part of the content, not another promotion */
+.offer-title {
+  padding: 0;
+  margin: 0 0 11px;
+  border: 0 !important;
+  border-radius: 0;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+.offer-title:hover {
+  transform: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+/* keep a subtle inner glass sheen across the whole promotion */
+.offer > .offer-image::after {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: -90%;
+  width: 28%;
+  height: 140%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.10), rgba(255,255,255,.62), rgba(255,255,255,.08), transparent);
+  transform: skewX(-18deg);
+  filter: blur(3px);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 4;
+  animation: unifiedOfferSweep 5.4s ease-in-out infinite;
+}
+.offer:nth-of-type(2) > .offer-image::after { animation-delay: 1.2s; }
+.offer:nth-of-type(3) > .offer-image::after { animation-delay: 2.4s; }
+
+@keyframes unifiedOfferSweep {
+  0%,18% { left: -90%; opacity: 0; }
+  30% { opacity: .12; }
+  44% { opacity: .82; }
+  58% { opacity: .28; }
+  78%,100% { left: 145%; opacity: 0; }
+}
+
+@media(max-width:540px) {
+  .offer { padding: 7px; }
+  .offer-info { padding: 11px 10px 8px; }
+  .offer-note { margin-top: 24px; }
+}
+
+
+.offer-image.promo-random-link {
+  display:block;
+  cursor:pointer;
+  color:inherit;
+}
+.offer-image.promo-random-link:focus-visible {
+  outline:2px solid rgba(255,193,7,.9);
+  outline-offset:3px;
+}
+
+/* ===== Hero Skins Hover Label =====
+   No href is used here, so the browser will not expose javascript:void(0)
+   or a destination URL in the bottom-left status bar. */
+.offer-image.promo-random-link{
+  position:relative;
+  cursor:pointer;
+}
+.hero-skins-tooltip{
+  position:absolute;
+  left:50%;
+  bottom:18px;
+  transform:translate(-50%, 8px);
+  padding:7px 16px;
+  border:1px solid rgba(255,193,7,.65);
+  border-radius:7px;
+  background:rgba(8,12,16,.78);
+  color:#fff;
+  cursor:pointer;
+  font-family:Georgia,"Times New Roman",serif;
+  appearance:none;
+  -webkit-appearance:none;
+  font-size:14px;
+  font-weight:bold;
+  letter-spacing:.5px;
+  white-space:nowrap;
+  text-shadow:0 0 7px rgba(255,255,255,.25);
+  box-shadow:
+    0 5px 18px rgba(0,0,0,.35),
+    0 0 16px rgba(255,193,7,.12),
+    inset 0 1px 0 rgba(255,255,255,.14);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  opacity:0;
+  visibility:hidden;
+  pointer-events:auto;
+  z-index:50;
+  transition:opacity .25s ease, transform .25s ease, visibility .25s ease;
+}
+.hero-skins-tooltip::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:-5px;
+  width:9px;
+  height:9px;
+  background:rgba(8,12,16,.78);
+  border-left:1px solid rgba(255,193,7,.65);
+  border-top:1px solid rgba(255,193,7,.65);
+  transform:translateX(-50%) rotate(45deg);
+}
+.offer-image.promo-random-link:hover .hero-skins-tooltip,
+.offer-image.promo-random-link:focus-visible .hero-skins-tooltip{
+  opacity:1;
+  visibility:visible;
+  transform:translate(-50%,0);
+}
+.offer-image.promo-random-link:focus-visible{
+  outline:2px solid rgba(255,193,7,.9);
+  outline-offset:3px;
+}
+.hero-skins-tooltip{
+  font:inherit;
+  text-align:center;
+}
+.hero-skins-tooltip:hover{
+  border-color:rgba(255,193,7,.95);
+  background:rgba(12,16,22,.92);
+  box-shadow:
+    0 6px 20px rgba(0,0,0,.42),
+    0 0 20px rgba(255,193,7,.22),
+    inset 0 1px 0 rgba(255,255,255,.18);
+}
+.hero-skins-tooltip:focus-visible{
+  outline:2px solid rgba(255,193,7,.95);
+  outline-offset:3px;
+}
+/* ===== Hero Skins Button Click Effect ===== */
+.hero-skins-tooltip{
+  transition:
+    opacity .25s ease,
+    transform .25s ease,
+    visibility .25s ease,
+    background .2s ease,
+    box-shadow .2s ease,
+    border-color .2s ease;
+}
+
+/* ===== Hero Skins Hover Glow ===== */
+.hero-skins-tooltip:hover,
+.hero-skins-tooltip:focus-visible{
+  transform:translate(-50%,0) scale(1.04);
+  border-color:#fff1a8;
+  background:rgba(255,193,7,.22);
+  box-shadow:
+    0 4px 14px rgba(0,0,0,.38),
+    0 0 18px rgba(255,193,7,.55),
+    0 0 34px rgba(255,193,7,.35),
+    0 0 48px rgba(255,255,255,.14),
+    inset 0 0 14px rgba(255,193,7,.22);
+  color:#fff;
+  text-shadow:
+    0 0 5px rgba(255,255,255,.9),
+    0 0 12px rgba(255,193,7,.75);
+}
+
+.hero-skins-tooltip::after{
+  content:"";
+  position:absolute;
+  inset:-4px;
+  border-radius:10px;
+  border:1px solid rgba(255,193,7,.25);
+  pointer-events:none;
+  opacity:0;
+  transition:opacity .2s ease, inset .2s ease, box-shadow .2s ease;
+}
+
+.hero-skins-tooltip:hover::after,
+.hero-skins-tooltip:focus-visible::after{
+  inset:-7px;
+  opacity:1;
+  border-color:rgba(255,193,7,.7);
+  box-shadow:
+    0 0 14px rgba(255,193,7,.55),
+    0 0 26px rgba(255,193,7,.25);
+}
+
+
+
+/* ===== VIP Offer ===== */
+.vip-offer-image img{
+  width:86%;
+  margin:0 auto;
+  height:auto;
+  display:block;
+  border-radius:8px;
+}
+.vip-offer-info{
+  padding:12px 14px 10px;
+}
+.vip-section{
+  margin:0 0 14px;
+}
+.vip-section:last-child{
+  margin-bottom:0;
+}
+.vip-heading{
+  display:inline-block;
+  margin:0 0 7px;
+  color:#fff;
+  font-size:18px;
+  font-weight:bold;
+  font-style:italic;
+  text-shadow:0 0 8px rgba(255,193,7,.18);
+}
+.vip-list{
+  margin:0 0 0 18px;
+  padding:0;
+  color:#f1f1f1;
+  font-size:13px;
+}
+.vip-list li{
+  margin:0 0 5px;
+}
+.vip-color-logos{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  margin-left:2px;
+  vertical-align:middle;
+  transform:translateY(-1px);
+}
+.vip-color-logos img{
+  width:28px;
+  height:28px;
+  object-fit:contain;
+  display:inline-block;
+  vertical-align:middle;
+  border-radius:4px;
+  filter:drop-shadow(0 0 4px rgba(255,255,255,.18));
+}
+.vip-color-logos img:hover{
+  transform:scale(1.12);
+  filter:drop-shadow(0 0 7px rgba(255,255,255,.38));
+}
+.vip-cost{
+  color:#ffc107;
+  font-weight:bold;
+}
+.vip-cost strong{
+  color:#fff;
+}
+.vip-consult{
+  color:#ffc107;
+  font-weight:bold;
+}
+@media(max-width:540px){
+  .vip-offer-info{padding:11px 10px 8px;}
+  .vip-heading{font-size:17px;}
+  .vip-list{font-size:13px;}
+}
+/* ===== Separate VIP / Super VIP Frames ===== */
+.vip-single{
+  margin-bottom:18px;
+}
+.vip-single:last-of-type{
+  margin-bottom:18px;
+}
+.vip-single .vip-offer-image{
+  align-self:center;
+}
+
+
+/* ===== VIP boxes aligned with the three offers below ===== */
+.vip-single{
+  grid-template-columns:350px 1fr;
+  gap:24px;
+  padding:8px;
+  margin-bottom:18px;
+}
+
+.vip-single .vip-offer-image{
+  width:100%;
+  align-self:center;
+}
+
+.vip-single .vip-offer-info{
+  min-width:0;
+  padding:12px 14px 10px;
+}
+
+@media(max-width:720px){
+  .vip-single{
+    grid-template-columns:280px 1fr;
+    gap:18px;
+  }
+}
+
+@media(max-width:540px){
+  .vip-single{
+    grid-template-columns:1fr;
+    gap:11px;
+  }
+  .vip-single .vip-offer-image{
+    max-width:100%;
+  }
+}
+
+
+.vip-golden-word{
+  color:#ffd54a;
+  font-weight:700;
+  text-shadow:0 0 6px rgba(255,193,7,.55);
+}
+.vip-custom-word{
+  font-weight:700;
+  background:linear-gradient(90deg,#ff4d5a,#ffc107,#00a8ff,#a855f7,#ff4d5a);
+  background-size:220% 100%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:vipCustomColorShift 3.2s linear infinite;
+}
+@keyframes vipCustomColorShift{
+  0%{background-position:0% 50%;}
+  100%{background-position:220% 50%;}
+}
+
+/* Gold highlight for selected offer values */
+.gold-highlight{
+  color:#ffc107;
+  text-shadow:0 0 5px rgba(255,193,7,.35);
+  font-weight:700;
+}
+</style>
+</head>
+<body>
+<main class="page">
+  <div class="banner-wrap special-offer-banner">
+    <img src="https://i.imgur.com/HIzhCMY.jpg" alt="Special Offer">
+
+    <div class="storm-afterglow" aria-hidden="true"></div>
+    <div class="storm-flash" aria-hidden="true"></div>
+
+    <svg class="storm-lightning" viewBox="0 0 1000 420" preserveAspectRatio="none" aria-hidden="true">
+      <!-- Main branching strike -->
+      <path class="bolt-glow bolt-blue strike-a" d="M165 0 L192 48 L168 86 L224 122 L194 165 L250 205 L218 248 L274 286 L238 330 L292 420"/>
+      <path class="bolt-core strike-a" d="M165 0 L192 48 L168 86 L224 122 L194 165 L250 205 L218 248 L274 286 L238 330 L292 420"/>
+
+      <!-- Main central strike with branches -->
+      <path class="bolt-glow bolt-gold strike-b" d="M535 0 L508 56 L548 94 L515 132 L570 170 L532 214 L586 252 L555 300 L603 342 L575 420"/>
+      <path class="bolt-core strike-b" d="M535 0 L508 56 L548 94 L515 132 L570 170 L532 214 L586 252 L555 300 L603 342 L575 420"/>
+
+      <!-- Right strike -->
+      <path class="bolt-glow bolt-red strike-c" d="M815 0 L784 52 L822 90 L772 130 L812 166 L766 210 L808 250 L770 296 L796 344 L760 420"/>
+      <path class="bolt-core strike-c" d="M815 0 L784 52 L822 90 L772 130 L812 166 L766 210 L808 250 L770 296 L796 344 L760 420"/>
+
+      <!-- Branches -->
+      <path class="bolt-glow bolt-blue branch" d="M194 165 L126 150 L88 112"/>
+      <path class="bolt-core branch" d="M194 165 L126 150 L88 112"/>
+      <path class="bolt-glow bolt-gold branch" d="M532 214 L465 190 L430 146"/>
+      <path class="bolt-core branch" d="M532 214 L465 190 L430 146"/>
+      <path class="bolt-glow bolt-gold branch" d="M570 170 L630 142 L676 105"/>
+      <path class="bolt-core branch" d="M570 170 L630 142 L676 105"/>
+      <path class="bolt-glow bolt-red branch" d="M766 210 L700 188 L662 150"/>
+      <path class="bolt-core branch" d="M766 210 L700 188 L662 150"/>
+    </svg>
+  </div>
+
+  <!-- VIP -->
+  <article class="offer vip-offer vip-single">
+    <div class="offer-image vip-offer-image promo-random-link" aria-label="Hero Skins">
+      <button type="button" class="hero-skins-tooltip" aria-label="Open Hero Skins" onclick="openRandomPromo(event)">Hero Skins</button>
+      <img src="https://i.imgur.com/yXaxr8T.png" alt="VIP Offer">
+    </div>
+    <div class="offer-info vip-offer-info">
+      <div class="vip-section">
+        <h2 class="vip-heading">VIP</h2>
+        <ul class="vip-list">
+          <li>Chat messages color become <span class="vip-golden-word">golden</span>.</li>
+          <li>Circle of power is slightly modified <span class="vip-color-logos" aria-label="Purple and Blue power colors"><img src="https://i.imgur.com/9RhUl5l.png" alt="Purple and Blue" loading="lazy"></span></li>
+          <li>Golden announce on the game start.</li>
+          <li class="vip-cost"><strong>Cost: $100</strong> &nbsp;All donation count total</li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <!-- Super VIP -->
+  <article class="offer vip-offer vip-single">
+    <div class="offer-image vip-offer-image promo-random-link" aria-label="Hero Skins">
+      <button type="button" class="hero-skins-tooltip" aria-label="Open Hero Skins" onclick="openRandomPromo(event)">Hero Skins</button>
+      <img src="https://i.imgur.com/yXaxr8T.png" alt="Super VIP Offer">
+    </div>
+    <div class="offer-info vip-offer-info">
+      <div class="vip-section">
+        <h2 class="vip-heading">Super VIP</h2>
+        <ul class="vip-list">
+          <li>Chat messages color become <span class="vip-custom-word">Custom</span>.</li>
+          <li>Circle of power is slightly modified <span class="vip-color-logos" aria-label="Golden power color"><img src="https://i.imgur.com/LQWiuWn.png" alt="Golden" loading="lazy"></span></li>
+          <li>Custom color name announce on the game start.</li>
+          <li>90% chance a hero selected during the ban phase will actually be banned.</li>
+          <li class="vip-cost"><strong>Cost:</strong> Own half of the total of skins, consult for specific details.</li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <article class="offer">
+    <div class="offer-image promo-random-link" aria-label="Hero Skins">
+      <button type="button" class="hero-skins-tooltip" aria-label="Open Hero Skins" onclick="openRandomPromo(event)">Hero Skins</button>
+      <img src="https://i.imgur.com/VWet7tx.png" alt="Offer">
+    </div>
+    <div class="offer-info">
+      <h2 class="offer-title">Classic Offers</h2>
+      <p class="offer-desc">Purchase 5 skins with a total value of <span class="gold-price">$40</span> to receive <span class="gold-highlight">1</span> free skin.</p>
+      <p class="offer-line"><strong>Duration :</strong> All - Time</p>
+      <p class="offer-note">This offer cannot be combined with other promotions.</p>
+    </div>
+  </article>
+
+  <article class="offer">
+    <div class="offer-image promo-random-link" aria-label="Hero Skins">
+      <button type="button" class="hero-skins-tooltip" aria-label="Open Hero Skins" onclick="openRandomPromo(event)">Hero Skins</button>
+      <img src="https://i.imgur.com/fNvIe4m.jpg" alt="Offer">
+    </div>
+    <div class="offer-info">
+      <h2 class="offer-title">Promotional Offers</h2>
+      <p class="offer-desc">For single purchases exceeding <span class="gold-price">$50</span>, enjoy a <span class="gold-highlight">5%</span> discount on the total price of your next purchase.</p>
+      <p class="offer-line"><strong>Purchase exclusively through :</strong> <span class="red">Mine</span></p>
+      <p class="offer-line"><strong>Duration :</strong> All - Time</p>
+      <p class="offer-note">This offer cannot be combined with other promotions.</p>
+    </div>
+  </article>
+
+  <article class="offer">
+    <div class="offer-image promo-random-link" aria-label="Hero Skins">
+      <button type="button" class="hero-skins-tooltip" aria-label="Open Hero Skins" onclick="openRandomPromo(event)">Hero Skins</button>
+      <img src="https://i.imgur.com/Ch8Ivhd.jpg" alt="Offer">
+    </div>
+    <div class="offer-info">
+      <h2 class="offer-title">Promotional Offers 2</h2>
+      <p class="offer-desc">For single purchases exceeding <span class="gold-price">$80</span>, enjoy a <span class="gold-highlight">10%</span> discount on the total price of your next purchase.</p>
+      <p class="offer-line"><strong>Purchase exclusively through :</strong> <span class="red">Mine</span></p>
+      <p class="offer-line"><strong>Duration :</strong> All - Time</p>
+      <p class="offer-note">This offer cannot be combined with other promotions.</p>
+    </div>
+  </article>
+
+  <div class="energy-line"></div>
+</main>
+
+<footer>
+  RGC Dota Official Skins Shop — Ranked Gaming Client<br>
+  © 2026 All Rights Reserved.
+</footer>
+
+<script>
+function openRandomPromo(event) {
+  if (event) event.preventDefault();
+
+  const promoLinks = [
+    "https://sites.google.com/view/rgcskinshop/strength-hero",
+    "https://sites.google.com/view/rgcskinshop/agility-hero",
+    "https://sites.google.com/view/rgcskinshop/intelligence-hero"
+  ];
+
+  const randomIndex = Math.floor(Math.random() * promoLinks.length);
+  const target = promoLinks[randomIndex];
+
+  // Open the randomly selected page in a new browser tab/window.
+  window.open(target, "_blank", "noopener,noreferrer");
+}
+
+// The Hero Skins button itself triggers the random new-tab navigation.
+
+</script>
+</body>
+</html>
