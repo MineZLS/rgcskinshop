@@ -1,0 +1,5992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="color-scheme" content="dark">
+<title>Agility Heroes — RGC Skin Shop</title>
+
+<style>
+
+:root{
+  --bg-main:#05080d;
+  --bg-secondary:#07111d;
+
+  --bg-card:rgba(8,14,23,.90);
+  --bg-hover:rgba(10,19,31,.97);
+
+  --gold:#d4af37;
+  --gold-light:#f4d97b;
+
+  --blue:#0094ff;
+  --blue-light:#43b7ff;
+
+  --red:#e63946;
+  --red-light:#ff6672;
+
+  --text-main:#eef4fa;
+  --text-secondary:#aebdcd;
+  --muted:#718296;
+
+  --border:rgba(0,148,255,.16);
+  --border-hover:rgba(0,148,255,.48);
+
+  --shadow:rgba(0,0,0,.58);
+}
+
+
+/* =========================
+   GLOBAL
+========================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  min-height:100vh;
+
+  padding:42px 20px 70px;
+
+  color:var(--text-main);
+
+  font-family:
+    "Segoe UI",
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  line-height:1.6;
+
+  background:
+
+    radial-gradient(
+      circle at 18% 4%,
+      rgba(0,148,255,.10),
+      transparent 30%
+    ),
+
+    radial-gradient(
+      circle at 82% 12%,
+      rgba(0,92,170,.075),
+      transparent 30%
+    ),
+
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(230,57,70,.025),
+      transparent 32%
+    ),
+
+    linear-gradient(
+      180deg,
+      #05080d 0%,
+      #07111d 48%,
+      #05080d 100%
+    );
+}
+
+button,
+input{
+  font:inherit;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.page-header{
+  max-width:1400px;
+
+  margin:0 auto 30px;
+
+  text-align:center;
+
+  position:relative;
+
+  padding-bottom:28px;
+}
+
+
+/* Deep blue atmospheric glow */
+
+.page-header::before{
+  content:"";
+
+  position:absolute;
+
+  top:-42px;
+  left:50%;
+
+  transform:translateX(-50%);
+
+  width:480px;
+  height:190px;
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(0,148,255,.11),
+      transparent 70%
+    );
+
+  pointer-events:none;
+}
+
+
+/* =========================
+   PAGE TITLE
+========================= */
+
+.page-title{
+  position:relative;
+
+  font-size:
+    clamp(
+      1.8rem,
+      4vw,
+      2.6rem
+    );
+
+  font-weight:800;
+
+  color:var(--gold);
+
+  letter-spacing:.5px;
+
+  text-shadow:
+    0 0 8px rgba(212,175,55,.35),
+    0 0 25px rgba(212,175,55,.12);
+
+  margin-bottom:7px;
+}
+
+
+/* =========================
+   SUBTITLE
+========================= */
+
+.page-subtitle{
+  position:relative;
+
+  color:var(--blue-light);
+
+  font-size:.95rem;
+
+  letter-spacing:1.5px;
+
+  text-transform:uppercase;
+
+  text-shadow:
+    0 0 12px rgba(0,148,255,.18);
+}
+
+
+/* =========================
+   HEADER LINE
+========================= */
+
+.page-header::after{
+  content:"";
+
+  position:absolute;
+
+  bottom:0;
+  left:50%;
+
+  transform:translateX(-50%);
+
+  width:min(420px,80%);
+
+  height:1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(0,148,255,.65),
+      transparent
+    );
+
+  box-shadow:
+    0 0 12px rgba(0,148,255,.35);
+}
+
+
+/* =========================
+   RGC TITLE LOGO
+========================= */
+
+.rgc-title-logo{
+  display:flex;
+
+  justify-content:center;
+  align-items:center;
+
+  margin:0 auto 12px;
+}
+
+.rgc-title-logo img{
+  width:min(112px,24vw);
+
+  height:auto;
+
+  max-height:88px;
+
+  object-fit:contain;
+
+  display:block;
+
+  filter:
+    drop-shadow(
+      0 0 6px rgba(255,215,90,.55)
+    )
+    drop-shadow(
+      0 0 18px rgba(255,215,90,.28)
+    );
+
+  animation:
+    rgcLogoPulse 2.6s
+    ease-in-out
+    infinite;
+
+  transition:
+    transform .3s ease,
+    filter .3s ease;
+}
+
+.rgc-title-logo img:hover{
+  transform:scale(1.05);
+
+  filter:
+    drop-shadow(
+      0 0 8px rgba(255,215,90,.85)
+    )
+    drop-shadow(
+      0 0 24px rgba(255,215,90,.55)
+    );
+}
+
+
+@keyframes rgcLogoPulse{
+
+  0%,100%{
+    filter:
+      drop-shadow(
+        0 0 5px rgba(255,215,90,.45)
+      )
+      drop-shadow(
+        0 0 14px rgba(255,215,90,.22)
+      );
+  }
+
+  50%{
+    filter:
+      drop-shadow(
+        0 0 9px rgba(255,215,90,.78)
+      )
+      drop-shadow(
+        0 0 22px rgba(255,215,90,.42)
+      );
+  }
+
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.shop-toolbar{
+  max-width:1400px;
+
+  margin:0 auto 18px;
+
+  display:flex;
+
+  justify-content:center;
+  align-items:center;
+
+  gap:10px;
+
+  flex-wrap:wrap;
+}
+
+.search-box{
+  position:relative;
+
+  width:min(430px,100%);
+}
+
+.search-box input{
+  width:100%;
+
+  height:42px;
+
+  padding:
+    0
+    42px
+    0
+    16px;
+
+  border-radius:22px;
+
+  border:
+    1px solid
+    rgba(0,148,255,.18);
+
+  background:
+    rgba(5,12,20,.84);
+
+  color:var(--text-main);
+
+  outline:none;
+
+  font-size:.9rem;
+
+  transition:.25s;
+
+  backdrop-filter:blur(10px);
+}
+
+.search-box input::placeholder{
+  color:#718296;
+}
+
+.search-box input:focus{
+  border-color:
+    rgba(0,148,255,.65);
+
+  box-shadow:
+
+    0 0 0 2px
+    rgba(0,148,255,.08),
+
+    0 0 18px
+    rgba(0,148,255,.18);
+}
+
+.search-icon{
+  position:absolute;
+
+  right:16px;
+
+  top:50%;
+
+  transform:
+    translateY(-50%);
+
+  color:var(--blue-light);
+
+  font-size:15px;
+
+  pointer-events:none;
+}
+
+
+/* =========================
+   RESULT BAR
+========================= */
+
+.result-bar{
+  max-width:1400px;
+
+  margin:0 auto 15px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  color:#718296;
+
+  font-size:.78rem;
+}
+
+.result-count{
+  font-weight:600;
+}
+
+
+/* =========================
+   CARD GRID
+========================= */
+
+.cards-grid{
+  width:100%;
+
+  max-width:1400px;
+
+  margin:0 auto;
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fill,
+      minmax(270px,1fr)
+    );
+
+  gap:22px;
+}
+
+
+/* =========================
+   SKIN CARD
+========================= */
+
+.skin-card{
+
+  --mx:50%;
+  --my:50%;
+
+  position:relative;
+
+  overflow:hidden;
+
+  display:flex;
+
+  flex-direction:column;
+
+  min-width:0;
+
+  background:
+    var(--bg-card);
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius:14px;
+
+  box-shadow:
+    0 5px 18px
+    var(--shadow);
+
+  backdrop-filter:blur(10px);
+
+  transition:
+    transform .3s,
+    border-color .3s,
+    box-shadow .3s,
+    background .3s;
+}
+
+
+/* =========================
+   CURSOR FOLLOWING LIGHT
+========================= */
+
+.skin-card::before{
+
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  border-radius:inherit;
+
+  background:
+
+    radial-gradient(
+      circle 150px
+      at var(--mx) var(--my),
+
+      rgba(0,148,255,.17),
+
+      rgba(0,148,255,.07)
+      34%,
+
+      transparent 72%
+    );
+
+  opacity:0;
+
+  pointer-events:none;
+
+  z-index:5;
+
+  transition:
+    opacity .18s ease;
+}
+
+
+/* =========================
+   CARD HOVER
+========================= */
+
+.skin-card:hover{
+
+  transform:
+    translateY(-6px);
+
+  background:
+    var(--bg-hover);
+
+  border-color:
+    rgba(0,148,255,.48);
+
+  box-shadow:
+
+    0 12px 32px
+    rgba(0,0,0,.65),
+
+    0 0 25px
+    rgba(0,148,255,.13),
+
+    0 0 42px
+    rgba(0,80,150,.10);
+}
+
+.skin-card:hover::before{
+  opacity:1;
+}
+
+
+/* =========================
+   CARD IMAGE
+========================= */
+
+.card-image{
+
+  width:100%;
+
+  height:185px;
+
+  padding:9px;
+
+  box-sizing:border-box;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  overflow:hidden;
+
+  background:
+
+    radial-gradient(
+      circle at center,
+      rgba(0,148,255,.12),
+      transparent 65%
+    ),
+
+    linear-gradient(
+      135deg,
+      #162333,
+      #0b121c
+    );
+
+  position:relative;
+}
+
+.card-image::after{
+
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+
+    linear-gradient(
+      180deg,
+      transparent 55%,
+      rgba(0,0,0,.28)
+    );
+
+  pointer-events:none;
+}
+
+.card-image img{
+
+  width:100%;
+
+  height:100%;
+
+  max-width:100%;
+  max-height:100%;
+
+  object-fit:contain;
+
+  object-position:center;
+
+  transition:
+    filter .3s;
+
+  display:block;
+}
+
+.skin-card:hover
+.card-image img{
+
+  filter:
+    brightness(1.06);
+}
+
+
+/* =========================
+   ID BADGE
+========================= */
+
+.id-badge{
+
+  position:absolute;
+
+  top:10px;
+  left:10px;
+
+  z-index:3;
+
+  padding:3px 8px;
+
+  border-radius:6px;
+
+  background:
+    rgba(4,8,13,.82);
+
+  border:
+    1px solid
+    rgba(212,175,55,.45);
+
+  color:var(--gold-light);
+
+  font-size:.7rem;
+
+  font-weight:800;
+
+  backdrop-filter:blur(6px);
+}
+
+
+/* =========================
+   IMAGE FALLBACK
+========================= */
+
+.image-fallback{
+
+  display:none;
+
+  position:absolute;
+
+  inset:0;
+
+  align-items:center;
+
+  justify-content:center;
+
+  flex-direction:column;
+
+  color:#66778a;
+
+  font-size:12px;
+
+  gap:4px;
+}
+
+.image-fallback small{
+  color:#455465;
+}
+
+.card-image.image-error
+.image-fallback{
+  display:flex;
+}
+
+
+/* =========================
+   CARD BODY
+========================= */
+
+.card-body{
+
+  display:flex;
+
+  flex-direction:column;
+
+  flex:1;
+
+  padding:
+    16px
+    17px
+    17px;
+}
+
+
+/* =========================
+   SKIN NAME
+========================= */
+
+.skin-name{
+
+  min-height:45px;
+
+  font-size:1rem;
+
+  line-height:1.35;
+
+  font-weight:700;
+
+  color:var(--gold);
+
+  margin-bottom:8px;
+
+  text-shadow:
+    0 0 7px
+    rgba(212,175,55,.1);
+}
+
+
+/* =========================
+   META
+========================= */
+
+.skin-meta{
+
+  color:var(--text-secondary);
+
+  font-size:.78rem;
+
+  margin-bottom:13px;
+
+  min-height:74px;
+}
+
+.skin-meta p{
+  margin:3px 0;
+}
+
+.skin-meta strong{
+  color:#d0d8e1;
+
+  font-weight:600;
+}
+
+
+/* =========================
+   VERSION LINE
+========================= */
+
+.skin-meta
+.version-line{
+
+  display:block;
+
+  white-space:nowrap;
+
+  overflow:hidden;
+
+  text-overflow:ellipsis;
+}
+
+.version-separator{
+
+  opacity:.55;
+
+  padding:0 4px;
+}
+
+
+/* =========================
+   CARD BOTTOM
+========================= */
+
+.card-bottom{
+
+  margin-top:auto;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:8px;
+
+  flex-wrap:wrap;
+}
+
+
+/* =========================
+   PRICE
+========================= */
+
+.price-tag{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  min-width:52px;
+
+  padding:5px 13px;
+
+  border-radius:20px;
+
+  background:
+
+    linear-gradient(
+      90deg,
+      #a97908,
+      var(--gold),
+      #e0bd4e
+    );
+
+  color:#111;
+
+  font-size:.88rem;
+
+  font-weight:800;
+
+  box-shadow:
+    0 2px 8px
+    rgba(212,175,55,.16);
+}
+
+
+/* =========================
+   TAGS
+========================= */
+
+.tag-row{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:flex-end;
+
+  gap:5px;
+
+  flex-wrap:wrap;
+}
+
+.tag,
+.youtube-link{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  padding:3px 8px;
+
+  border-radius:5px;
+
+  font-size:.67rem;
+
+  line-height:1.3;
+}
+
+
+/* Blue tags */
+
+.tag{
+
+  background:
+    rgba(0,148,255,.10);
+
+  border:
+    1px solid
+    rgba(0,148,255,.13);
+
+  color:#66baff;
+}
+
+
+/* Muted tag */
+
+.tag-muted{
+
+  background:
+    rgba(130,140,150,.08);
+
+  color:#7e8997;
+
+  border-color:
+    rgba(130,140,150,.11);
+}
+
+
+/* =========================
+   YOUTUBE BUTTON
+========================= */
+
+.youtube-link{
+
+  gap:4px;
+
+  border:
+    1px solid
+    rgba(230,57,70,.18);
+
+  background:
+    rgba(230,57,70,.09);
+
+  color:
+    var(--red-light);
+
+  text-decoration:none;
+
+  cursor:pointer;
+
+  transition:.25s;
+}
+
+.youtube-link:hover{
+
+  color:#fff;
+
+  background:
+    rgba(230,57,70,.22);
+
+  border-color:
+    rgba(230,57,70,.38);
+
+  transform:
+    translateY(-1px);
+
+  box-shadow:
+    0 0 10px
+    rgba(230,57,70,.15);
+}
+
+
+/* =========================
+   NO RESULTS
+========================= */
+
+.no-results{
+
+  display:none;
+
+  max-width:1400px;
+
+  margin:55px auto;
+
+  text-align:center;
+
+  color:#737f8e;
+
+  font-size:.95rem;
+}
+
+.skin-card.hidden{
+  display:none;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+  .cards-grid{
+
+    grid-template-columns:
+      repeat(
+        auto-fill,
+        minmax(235px,1fr)
+      );
+
+    gap:15px;
+  }
+
+  .card-image{
+
+    height:165px;
+
+    padding:8px;
+  }
+}
+
+
+@media(max-width:600px){
+
+  body{
+    padding:
+      28px
+      11px
+      45px;
+  }
+
+  .page-header{
+    margin-bottom:22px;
+  }
+
+  .cards-grid{
+
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0,1fr)
+      );
+
+    gap:10px;
+  }
+
+  .card-image{
+
+    height:135px;
+
+    padding:7px;
+  }
+
+  .card-body{
+    padding:12px;
+  }
+
+  .skin-name{
+
+    font-size:.84rem;
+
+    min-height:43px;
+  }
+
+  .skin-meta{
+
+    font-size:.69rem;
+
+    min-height:88px;
+  }
+
+  .skin-meta
+  .version-line{
+
+    font-size:.66rem;
+  }
+
+  .price-tag{
+
+    font-size:.76rem;
+
+    padding:
+      4px
+      10px;
+  }
+
+  .tag,
+  .youtube-link{
+
+    font-size:.62rem;
+
+    padding:
+      3px
+      6px;
+  }
+
+  .card-bottom{
+    align-items:flex-start;
+  }
+
+  .rgc-title-logo{
+    margin-bottom:8px;
+  }
+
+  .rgc-title-logo img{
+
+    width:
+      min(88px,22vw);
+
+    max-height:70px;
+  }
+}
+
+
+@media(max-width:390px){
+
+  .cards-grid{
+    grid-template-columns:1fr;
+  }
+
+  .card-image{
+
+    height:175px;
+
+    padding:8px;
+  }
+}
+
+
+/* =========================
+   #1002 FLAGSHIP / PREMIUM
+========================= */
+
+.flagship-card{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(212,175,55,.12), transparent 38%),
+    linear-gradient(145deg, rgba(18,17,12,.98), rgba(7,10,14,.96) 58%, rgba(17,14,7,.98));
+  border:1px solid rgba(212,175,55,.62);
+  box-shadow:
+    0 8px 28px rgba(0,0,0,.68),
+    0 0 18px rgba(212,175,55,.12),
+    inset 0 0 0 1px rgba(255,221,120,.06);
+}
+
+.flagship-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  padding:1px;
+  background:linear-gradient(
+    135deg,
+    rgba(255,231,150,.95),
+    rgba(212,175,55,.18) 24%,
+    rgba(212,175,55,.62) 52%,
+    rgba(255,231,150,.18) 78%,
+    rgba(212,175,55,.9)
+  );
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  pointer-events:none;
+  z-index:8;
+  opacity:.9;
+}
+
+.flagship-card:hover{
+  transform:translateY(-8px);
+  border-color:rgba(244,217,123,.92);
+  box-shadow:
+    0 16px 38px rgba(0,0,0,.72),
+    0 0 28px rgba(212,175,55,.25),
+    0 0 55px rgba(212,175,55,.10),
+    inset 0 0 22px rgba(212,175,55,.035);
+}
+
+.flagship-card:hover::before{
+  opacity:1;
+  background:radial-gradient(
+    circle 170px at var(--mx) var(--my),
+    rgba(244,217,123,.20),
+    rgba(212,175,55,.08) 34%,
+    transparent 72%
+  );
+}
+
+.flagship-card .card-image{
+  height:200px;
+  padding:10px;
+  background:
+    radial-gradient(circle at center, rgba(212,175,55,.16), transparent 65%),
+    linear-gradient(135deg, #211c10, #0b1017);
+}
+
+.flagship-card .card-image::before{
+  content:"";
+  position:absolute;
+  inset:8px;
+  border:1px solid rgba(212,175,55,.30);
+  border-radius:9px;
+  box-shadow:
+    inset 0 0 18px rgba(212,175,55,.08),
+    0 0 12px rgba(212,175,55,.08);
+  pointer-events:none;
+  z-index:2;
+}
+
+.flagship-ribbon{
+  position:absolute;
+  top:11px;
+  right:11px;
+  z-index:4;
+  padding:4px 9px;
+  border:1px solid rgba(244,217,123,.72);
+  border-radius:999px;
+  background:linear-gradient(135deg,rgba(45,35,10,.94),rgba(17,13,6,.94));
+  color:#f4d97b;
+  font-size:.67rem;
+  font-weight:800;
+  letter-spacing:.55px;
+  text-transform:uppercase;
+  box-shadow:
+    0 0 10px rgba(212,175,55,.16),
+    inset 0 0 8px rgba(244,217,123,.06);
+  backdrop-filter:blur(7px);
+}
+
+.flagship-card .id-badge{
+  border-color:rgba(244,217,123,.78);
+  color:#ffe7a0;
+  background:rgba(18,13,5,.88);
+  box-shadow:0 0 10px rgba(212,175,55,.10);
+}
+
+.flagship-kicker{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  margin:-2px 0 7px;
+  color:#d9bb62;
+  font-size:.62rem;
+  font-weight:800;
+  letter-spacing:1.65px;
+  text-transform:uppercase;
+  text-shadow:0 0 8px rgba(212,175,55,.18);
+}
+
+.flagship-kicker::before,
+.flagship-kicker::after{
+  content:"";
+  width:28px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(212,175,55,.65));
+}
+
+.flagship-kicker::after{
+  background:linear-gradient(90deg,rgba(212,175,55,.65),transparent);
+}
+
+.flagship-card .skin-name{
+  color:#f2d477;
+  text-shadow:
+    0 0 8px rgba(212,175,55,.22),
+    0 0 18px rgba(212,175,55,.08);
+}
+
+.flagship-card .price-tag{
+  min-width:52px;
+  padding:5px 13px;
+  border-radius:20px;
+  background:linear-gradient(135deg,#8c6511 0%,#d4af37 32%,#fff0a8 50%,#d4af37 68%,#a87816 100%);
+  color:#171208;
+  font-size:.88rem;
+  font-weight:950;
+  letter-spacing:.3px;
+  border:1px solid rgba(255,244,185,.68);
+  box-shadow:0 3px 12px rgba(212,175,55,.25),0 0 22px rgba(212,175,55,.12),inset 0 1px 0 rgba(255,255,255,.48);
+  text-shadow:0 1px 0 rgba(255,241,174,.35);
+  position:relative;
+  overflow:hidden;
+}
+.flagship-card .price-tag::after{
+  content:"";
+  position:absolute;
+  top:-40%;
+  left:-70%;
+  width:42%;
+  height:180%;
+  transform:rotate(20deg);
+  background:rgba(255,255,255,.42);
+  animation:flagshipPriceShine 4.8s ease-in-out infinite;
+}
+.flagship-card .tag{
+  background:rgba(212,175,55,.09);
+  border-color:rgba(212,175,55,.22);
+  color:#d9bd67;
+}
+@keyframes flagshipPriceShine{
+  0%,55%{left:-70%;opacity:0;}
+  65%{opacity:1;}
+  78%,100%{left:135%;opacity:0;}
+}
+
+@media(max-width:600px){
+  .flagship-card .card-image{
+    height:145px;
+    padding:7px;
+  }
+  .flagship-ribbon{
+    top:8px;
+    right:8px;
+    padding:3px 7px;
+    font-size:.58rem;
+  }
+  .flagship-kicker{
+    font-size:.55rem;
+    letter-spacing:1.25px;
+  }
+  .flagship-kicker::before,
+  .flagship-kicker::after{width:18px;}
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<header class="page-header">
+
+  <div class="rgc-title-logo">
+
+    <img
+      src="https://i.imgur.com/ZQcoV5B.png"
+      alt="Ranked Gaming Client Logo"
+    >
+
+  </div>
+
+
+  <h1 class="page-title">
+    <img src="https://i.imgur.com/uYaQJGA.png" alt="" style="height:1em;width:1em;vertical-align:-0.12em;"> Agility Heroes Skins
+  </h1>
+
+
+  <p class="page-subtitle">
+    RGC Skin Shop — Dota / LoD Collection
+  </p>
+
+</header>
+
+
+
+<div class="shop-toolbar">
+
+  <div class="search-box">
+
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Search hero, skin or version..."
+      autocomplete="off"
+      aria-label="Search skins"
+    >
+
+    <span class="search-icon">
+      🔎
+    </span>
+
+  </div>
+
+</div>
+
+
+
+<div class="result-bar">
+
+  <span
+    class="result-count"
+    id="resultCount"
+  >
+    47 skins
+  </span>
+
+</div>
+
+
+
+<main
+  class="cards-grid"
+  id="cardsGrid"
+>
+
+
+<!-- =========================
+     #1002
+========================= -->
+
+<article
+  class="skin-card flagship-card"
+  data-tags="dota lod"
+  data-search="1002 Anti-Mage Basher D2 Magina DotA v7.03 LoD 6.89s"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/YTr6Aca.gif"
+      alt="#1002 Anti-Mage Basher D2"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#1002</small>
+    </div>
+
+    <div class="flagship-ribbon">
+      <span>✦ Exclusive</span>
+    </div>
+
+    <div class="id-badge">
+      #1002
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="flagship-kicker">
+      Premium Collection
+    </div>
+
+    <div class="skin-name">
+      #1002 Anti-Mage Basher D2
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Magina
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v7.03
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD 6.89s
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $50
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #105
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="105 Swamp Razor Razor DotA v7.04h0 LoD v6.92z"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/z9RJDVY.gif"
+      alt="#105 Swamp Razor"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#105</small>
+    </div>
+
+    <div class="id-badge">
+      #105
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #105 Swamp Razor
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Razor
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v7.04h0
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD v6.92z
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $7
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #113
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="113 Ember Spirit Armored Ember Spirit DotA 7.04h0 LoD 6.92x"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/PqJef0a.gif"
+      alt="#113 Ember Spirit Armored"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#113</small>
+    </div>
+
+    <div class="id-badge">
+      #113
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #113 Ember Spirit Armored
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Ember Spirit
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA 7.04h0
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD 6.92x
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $8
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #114
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="114 Ember Warrior Ember Spirit DotA 7.04h0 LoD 6.92x"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/SiRzUTN.gif"
+      alt="#114 Ember Warrior"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#114</small>
+    </div>
+
+    <div class="id-badge">
+      #114
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #114 Ember Warrior
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Ember Spirit
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA 7.04h0
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD 6.92x
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $13
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #118
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="118 Dragon Viper Viper DotA 7.04h0 LoD 6.92x"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/qvH17tE.gif"
+      alt="#118 Dragon Viper"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#118</small>
+    </div>
+
+    <div class="id-badge">
+      #118
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #118 Dragon Viper
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Viper
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA 7.04h0
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD 6.92x
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $13
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #124
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="124 Ice Clinkz Bone Fletcher DotA 7.04h0 LoD 6.92x"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/xiDZ5vx.gif"
+      alt="#124 Ice Clinkz"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#124</small>
+    </div>
+
+    <div class="id-badge">
+      #124
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #124 Ice Clinkz
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Bone Fletcher
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA 7.04h0
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD 6.92x
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $10
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #128
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="128 Tiger Ursa Ursa Warrior DotA 7.04h0 LoD 6.92x"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/mGaTwn7.gif"
+      alt="#128 Tiger Ursa"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#128</small>
+    </div>
+
+    <div class="id-badge">
+      #128
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #128 Tiger Ursa
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Ursa Warrior
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA 7.04h0
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD 6.92x
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $11
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #132
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="132 Moon Rider Christmas Moon Rider Luna DotA 7.04h0 LoD 6.92x"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/VjQda3L.gif"
+      alt="#132 Moon Rider Christmas"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#132</small>
+    </div>
+
+    <div class="id-badge">
+      #132
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #132 Moon Rider Christmas
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Moon Rider Luna
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA 7.04h0
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD 6.92x
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $12
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #80
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="80 Melting Assassin Phantom Assassin DotA v7.00e0 LoD 6.89s"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/52izNPc.jpg"
+      alt="#80 Melting Assassin"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#80</small>
+    </div>
+
+    <div class="id-badge">
+      #80
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #80 Melting Assassin
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Phantom Assassin
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v7.00e0
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD 6.89s
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $11
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+        <button
+          class="youtube-link"
+          type="button"
+          data-video="https://www.youtube.com/watch?v=_NJSICmMsOg"
+          aria-label="Watch Melting Assassin video"
+        >
+          ▶ Video
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #90
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="90 Naga the Trident Naga Siren DotA v7.00e0 LoD 6.89s"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/hb55Rrl.jpg"
+      alt="#90 Naga the Trident"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#90</small>
+    </div>
+
+    <div class="id-badge">
+      #90
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #90 Naga the Trident
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Naga Siren
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v7.00e0
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD 6.89s
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $9
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+        <button
+          class="youtube-link"
+          type="button"
+          data-video="https://www.youtube.com/watch?v=Aeypu-1yyAA"
+          aria-label="Watch Naga the Trident video"
+        >
+          ▶ Video
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #91
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="91 Sharpshooter Drow Drow Ranger DotA v7.00e0 LoD 6.89s"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/Jh89HGO.jpg"
+      alt="#91 Sharpshooter Drow"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#91</small>
+    </div>
+
+    <div class="id-badge">
+      #91
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #91 Sharpshooter Drow
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Drow Ranger
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v7.00e0
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD 6.89s
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $10
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+        <button
+          class="youtube-link"
+          type="button"
+          data-video="https://www.youtube.com/watch?v=tSmqei50Wu8"
+          aria-label="Watch Sharpshooter Drow video"
+        >
+          ▶ Video
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #94
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="94 Syberian Druid Lone Druid DotA v7.00e0 LoD 6.89s"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/KGKqOP4.png"
+      alt="#94 Syberian Druid"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#94</small>
+    </div>
+
+    <div class="id-badge">
+      #94
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #94 Syberian Druid
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Lone Druid
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v7.00e0
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD 6.89s
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $8
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+        <button
+          class="youtube-link"
+          type="button"
+          data-video="https://www.youtube.com/watch?v=gYE83W7wC4Q"
+          aria-label="Watch Syberian Druid video"
+        >
+          ▶ Video
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #97
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="97 Raging Morphling Morphling DotA v7.00e0 LoD 6.89s"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/RtxAxul.jpg"
+      alt="#97 Raging Morphling"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#97</small>
+    </div>
+
+    <div class="id-badge">
+      #97
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #97 Raging Morphling
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Morphling
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v7.00e0
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD 6.89s
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $8
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+        <button
+          class="youtube-link"
+          type="button"
+          data-video="https://www.youtube.com/watch?v=CESQoQRLdj4"
+          aria-label="Watch Raging Morphling video"
+        >
+          ▶ Video
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #100
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="100 Boatless Void Void DotA v7.01 LoD v6.90"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/Orb8KIh.jpg"
+      alt="#100 Boatless Void"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#100</small>
+    </div>
+
+    <div class="id-badge">
+      #100
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #100 Boatless Void
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Void
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v7.01
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD v6.90
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $11
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+        <button
+          class="youtube-link"
+          type="button"
+          data-video="https://www.youtube.com/watch?v=ox956pMwDcQ"
+          aria-label="Watch Boatless Void video"
+        >
+          ▶ Video
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #101
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="101 Phashion Assassin Phantom Assassin DotA v7.01 LoD 6.89s"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/oUBES6d.jpg"
+      alt="#101 Phashion Assassin"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#101</small>
+    </div>
+
+    <div class="id-badge">
+      #101
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #101 Phashion Assassin
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Phantom Assassin
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v7.01
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD 6.89s
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $12
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+        <button
+          class="youtube-link"
+          type="button"
+          data-video="https://www.youtube.com/watch?v=yM4_jW6xoQs"
+          aria-label="Watch Phashion Assassin video"
+        >
+          ▶ Video
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #78
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota only"
+  data-search="78 Dark Monkey King Monkey King DotA v6.90a8 LoD unavailable"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/Igd4vph.jpg"
+      alt="#78 Dark Monkey King"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#78</small>
+    </div>
+
+    <div class="id-badge">
+      #78
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #78 Dark Monkey King
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Monkey King
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v6.90a8
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        Unavailable
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $11
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag tag-muted">
+          LoD N/A
+        </span>
+
+        <button
+          class="youtube-link"
+          type="button"
+          data-video="https://www.youtube.com/watch?v=QsgZprDAnrE"
+          aria-label="Watch Dark Monkey King video"
+        >
+          ▶ Video
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #67
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="67 Brutal Phantom Lancer Phantom Lancer DotA v6.89a8 LoD 6.88a0"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/rnE6GIw.jpg"
+      alt="#67 Brutal Phantom Lancer"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#67</small>
+    </div>
+
+    <div class="id-badge">
+      #67
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #67 Brutal Phantom Lancer
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Phantom Lancer
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v6.89a8
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD 6.88a0
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $10
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+        <button
+          class="youtube-link"
+          type="button"
+          data-video="https://www.youtube.com/watch?v=LDtV057N4IY"
+          aria-label="Watch Brutal Phantom Lancer video"
+        >
+          ▶ Video
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #70
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="70 Weaver Icy Weaver DotA v6.89a8 LoD 6.88a0"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/1ZB71wJ.jpg"
+      alt="#70 Weaver Icy"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#70</small>
+    </div>
+
+    <div class="id-badge">
+      #70
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #70 Weaver Icy
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Weaver
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v6.89a8
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD 6.88a0
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $9
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+        <button
+          class="youtube-link"
+          type="button"
+          data-video="https://www.youtube.com/watch?v=vAHe_Jl6dmA"
+          aria-label="Watch Weaver Icy video"
+        >
+          ▶ Video
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #71
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="71 Juggernaut Slasher Juggernaut DotA v6.89a8 LoD 6.88a0"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/EigDV0M.jpg"
+      alt="#71 Juggernaut Slasher"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#71</small>
+    </div>
+
+    <div class="id-badge">
+      #71
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #71 Juggernaut Slasher
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Juggernaut
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v6.89a8
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD 6.88a0
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $11
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+        <button
+          class="youtube-link"
+          type="button"
+          data-video="https://www.youtube.com/watch?v=l8HN58FycBM"
+          aria-label="Watch Juggernaut Slasher video"
+        >
+          ▶ Video
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #75
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="75 Gyroshark Gyrocopter DotA v6.89a8 LoD 6.88a0"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/KrL24E4.jpg"
+      alt="#75 Gyroshark"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#75</small>
+    </div>
+
+    <div class="id-badge">
+      #75
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #75 Gyroshark
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Gyrocopter
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v6.89a8
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD 6.88a0
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $10
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+        <button
+          class="youtube-link"
+          type="button"
+          data-video="https://www.youtube.com/watch?v=Ihe9TqGY3Tg"
+          aria-label="Watch Gyroshark video"
+        >
+          ▶ Video
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #76
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="76 Spectre TRON Spectre DotA v6.89a8 LoD 6.88a0"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/yTVWasP.jpg"
+      alt="#76 Spectre TRON"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#76</small>
+    </div>
+
+    <div class="id-badge">
+      #76
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #76 Spectre TRON
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Spectre
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v6.89a8
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD 6.88a0
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $11
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #55
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="55 Golden Slark Slark DotA v6.89a8 LoD v6.86g"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/rQjnOSo.jpg"
+      alt="#55 Golden Slark"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#55</small>
+    </div>
+
+    <div class="id-badge">
+      #55
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #55 Golden Slark
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Slark
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v6.89a8
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD v6.86g
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $10
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+        <button
+          class="youtube-link"
+          type="button"
+          data-video="https://www.youtube.com/watch?v=pGvCp8EVnIY"
+          aria-label="Watch Golden Slark video"
+        >
+          ▶ Video
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #57
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="57 Violet Razor Razor DotA v6.89a8 LoD 6.88a0"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/2fMYyws.jpg"
+      alt="#57 Violet Razor"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#57</small>
+    </div>
+
+    <div class="id-badge">
+      #57
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #57 Violet Razor
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Razor
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v6.89a8
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD 6.88a0
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $10
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+        <button
+          class="youtube-link"
+          type="button"
+          data-video="https://www.youtube.com/watch?v=DDzOQ-OGRDY"
+          aria-label="Watch Violet Razor video"
+        >
+          ▶ Video
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #4
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="4 Priestess of the Moon Potm Mirana DotA v6.88w9 LoD v6.85p7.1"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/5SuLFl2.jpg"
+      alt="#4 Priestess of the Moon"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#4</small>
+    </div>
+
+    <div class="id-badge">
+      #4
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #4 Priestess of the Moon
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Potm Mirana
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v6.88w9
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD v6.85p7.1
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $7
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+        <button
+          class="youtube-link"
+          type="button"
+          data-video="https://www.youtube.com/watch?v=g4vlTkVQWyE"
+          aria-label="Watch Priestess of the Moon video"
+        >
+          ▶ Video
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #10
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="10 Clinkz Deadeye Clinkz DotA v6.88w9 LoD v6.85p7.1"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/IkmqTuQ.jpg"
+      alt="#10 Clinkz Deadeye"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#10</small>
+    </div>
+
+    <div class="id-badge">
+      #10
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #10 Clinkz Deadeye
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Clinkz
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v6.88w9
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD v6.85p7.1
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $7
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+        <button
+          class="youtube-link"
+          type="button"
+          data-video="https://www.youtube.com/watch?v=T8KD7kamZlA"
+          aria-label="Watch Clinkz Deadeye video"
+        >
+          ▶ Video
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #11
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="11 Anti Mage Magina DotA v6.88w9 LoD v6.85p7.1"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/gcYqmBJ.jpg"
+      alt="#11 Anti Mage"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#11</small>
+    </div>
+
+    <div class="id-badge">
+      #11
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #11 Anti Mage
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Magina
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v6.88w9
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD v6.85p7.1
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $8
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+        <button
+          class="youtube-link"
+          type="button"
+          data-video="https://www.youtube.com/watch?v=XBhCCgNXBOg"
+          aria-label="Watch Anti Mage video"
+        >
+          ▶ Video
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #12
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="12 Bloody Juggernaut Juggernaut DotA v6.88x0 LoD v6.86a"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/xJGRFPE.jpg"
+      alt="#12 Bloody Juggernaut"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#12</small>
+    </div>
+
+    <div class="id-badge">
+      #12
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #12 Bloody Juggernaut
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Juggernaut
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v6.88x0
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD v6.86a
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $7
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+        <button
+          class="youtube-link"
+          type="button"
+          data-video="https://www.youtube.com/watch?v=MEAK9320FS8"
+          aria-label="Watch Bloody Juggernaut video"
+        >
+          ▶ Video
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #14
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="14 Sadistic Venomancer Venomancer DotA v6.88x0 LoD v6.86a"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/HmDFyb8.jpg"
+      alt="#14 Sadistic Venomancer"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#14</small>
+    </div>
+
+    <div class="id-badge">
+      #14
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #14 Sadistic Venomancer
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Venomancer
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v6.88x0
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD v6.86a
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $7
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+        <button
+          class="youtube-link"
+          type="button"
+          data-video="https://www.youtube.com/watch?v=MlL_vzrIYFk"
+          aria-label="Watch Sadistic Venomancer video"
+        >
+          ▶ Video
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #15
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="15 Snow Broodmother Broodmother DotA v6.88x0 LoD v6.86a"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/4qEPyVM.jpg"
+      alt="#15 Snow Broodmother"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#15</small>
+    </div>
+
+    <div class="id-badge">
+      #15
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #15 Snow Broodmother
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Broodmother
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v6.88x0
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD v6.86a
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $7
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+        <button
+          class="youtube-link"
+          type="button"
+          data-video="https://www.youtube.com/watch?v=PXMM3LBqGe0"
+          aria-label="Watch Snow Broodmother video"
+        >
+          ▶ Video
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #16
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="16 Forsaken Drow Drow DotA v6.88x0 LoD v6.86a"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/KeMHwGc.jpg"
+      alt="#16 Forsaken Drow"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#16</small>
+    </div>
+
+    <div class="id-badge">
+      #16
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #16 Forsaken Drow
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Drow
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v6.88x0
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD v6.86a
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $5
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+        <button
+          class="youtube-link"
+          type="button"
+          data-video="https://www.youtube.com/watch?v=vAaYna3fLHY"
+          aria-label="Watch Forsaken Drow video"
+        >
+          ▶ Video
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #18
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="18 Cursed Ursa Ursa DotA v6.88x0 LoD v6.86a"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/7iY93tA.jpg"
+      alt="#18 Cursed Ursa"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#18</small>
+    </div>
+
+    <div class="id-badge">
+      #18
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #18 Cursed Ursa
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Ursa
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v6.88x0
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD v6.86a
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $7
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+        <button
+          class="youtube-link"
+          type="button"
+          data-video="https://www.youtube.com/watch?v=VBwXhq5AK88"
+          aria-label="Watch Cursed Ursa video"
+        >
+          ▶ Video
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #22
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="22 Elite Sniper Sniper DotA v6.88x0 LoD v6.86a"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/Ay0ydsI.jpg"
+      alt="#22 Elite Sniper"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#22</small>
+    </div>
+
+    <div class="id-badge">
+      #22
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #22 Elite Sniper
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Sniper
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v6.88x0
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD v6.86a
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $8
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+        <button
+          class="youtube-link"
+          type="button"
+          data-video="https://www.youtube.com/watch?v=ex-c_OLdUyo"
+          aria-label="Watch Elite Sniper video"
+        >
+          ▶ Video
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #23
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="23 Shadow Seeker Bloodseeker DotA v6.88x0 LoD v6.86a"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/FY8zg0N.jpg"
+      alt="#23 Shadow Seeker"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#23</small>
+    </div>
+
+    <div class="id-badge">
+      #23
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #23 Shadow Seeker
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Bloodseeker
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v6.88x0
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD v6.86a
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $7
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+        <button
+          class="youtube-link"
+          type="button"
+          data-video="https://www.youtube.com/watch?v=g1C9TY71Dwg"
+          aria-label="Watch Shadow Seeker video"
+        >
+          ▶ Video
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #26
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="26 Starlord Void Void DotA v6.88x0 LoD v6.86a"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/9AxaSEX.jpg"
+      alt="#26 Starlord Void"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#26</small>
+    </div>
+
+    <div class="id-badge">
+      #26
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #26 Starlord Void
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Void
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v6.88x0
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD v6.86a
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $10
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+        <button
+          class="youtube-link"
+          type="button"
+          data-video="https://www.youtube.com/watch?v=D68nWsrENF8"
+          aria-label="Watch Starlord Void video"
+        >
+          ▶ Video
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #27
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="27 Phantom Assassin Phantom Assassin DotA v6.88x4 LoD v6.86g"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/KnPvqZY.jpg"
+      alt="#27 Phantom Assassin"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#27</small>
+    </div>
+
+    <div class="id-badge">
+      #27
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #27 Phantom Assassin
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Phantom Assassin
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v6.88x4
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD v6.86g
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $5
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+        <button
+          class="youtube-link"
+          type="button"
+          data-video="https://www.youtube.com/watch?v=Wp_1Bkpl0_Q"
+          aria-label="Watch Phantom Assassin video"
+        >
+          ▶ Video
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #32
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="32 Luna Moon Rider DotA v6.88x4 LoD v6.86g"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/wL3VAFQ.jpg"
+      alt="#32 Luna"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#32</small>
+    </div>
+
+    <div class="id-badge">
+      #32
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #32 Luna
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Moon Rider
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v6.88x4
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD v6.86g
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $5
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+        <button
+          class="youtube-link"
+          type="button"
+          data-video="https://www.youtube.com/watch?v=ElLA4lN4k_I"
+          aria-label="Watch Luna video"
+        >
+          ▶ Video
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #33
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="33 Dark Troll Warlord Troll Warlord DotA v6.88x4 LoD v6.86g"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/AIvEJqb.jpg"
+      alt="#33 Dark Troll Warlord"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#33</small>
+    </div>
+
+    <div class="id-badge">
+      #33
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #33 Dark Troll Warlord
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Troll Warlord
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v6.88x4
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD v6.86g
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $5
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+        <button
+          class="youtube-link"
+          type="button"
+          data-video="https://www.youtube.com/watch?v=SoOLb8sjKv4"
+          aria-label="Watch Dark Troll Warlord video"
+        >
+          ▶ Video
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #35
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="35 Slark the Fisherman Slark DotA v6.88x4 LoD v6.86g"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/eXYOEdT.jpg"
+      alt="#35 Slark the Fisherman"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#35</small>
+    </div>
+
+    <div class="id-badge">
+      #35
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #35 Slark the Fisherman
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Slark
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v6.88x4
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD v6.86g
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $5
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+        <button
+          class="youtube-link"
+          type="button"
+          data-video="https://www.youtube.com/watch?v=nz7WBLLSxXI"
+          aria-label="Watch Slark the Fisherman video"
+        >
+          ▶ Video
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #37
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="37 Naga Enchantress Naga Siren DotA v6.88x4 LoD v6.86g"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/WWOVAAR.jpg"
+      alt="#37 Naga Enchantress"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#37</small>
+    </div>
+
+    <div class="id-badge">
+      #37
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #37 Naga Enchantress
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Naga Siren
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v6.88x4
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD v6.86g
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $5
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+        <button
+          class="youtube-link"
+          type="button"
+          data-video="https://www.youtube.com/watch?v=17cl--1xa_c"
+          aria-label="Watch Naga Enchantress video"
+        >
+          ▶ Video
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #44
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="44 Spectral Diffusion Spectre DotA v6.88x4 LoD v6.86g"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/WsyrfA8.jpg"
+      alt="#44 Spectral Diffusion"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#44</small>
+    </div>
+
+    <div class="id-badge">
+      #44
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #44 Spectral Diffusion
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Spectre
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v6.88x4
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD v6.86g
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $8
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+        <button
+          class="youtube-link"
+          type="button"
+          data-video="https://www.youtube.com/watch?v=s_RvZb3z8L4"
+          aria-label="Watch Spectral Diffusion video"
+        >
+          ▶ Video
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #48
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="48 Venomancer Venomancer DotA v6.88x4 LoD v6.86g"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/jkLPfPb.jpg"
+      alt="#48 Venomancer"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#48</small>
+    </div>
+
+    <div class="id-badge">
+      #48
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #48 Venomancer
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Venomancer
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v6.88x4
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD v6.86g
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $7
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+        <button
+          class="youtube-link"
+          type="button"
+          data-video="https://www.youtube.com/watch?v=S9tV3VCBr_c"
+          aria-label="Watch Venomancer video"
+        >
+          ▶ Video
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #51
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="51 Soul Eater Fiend ShadowFriend DotA v6.88x8 LoD v6.86g"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/kBp3odf.jpg"
+      alt="#51 Soul Eater Fiend"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#51</small>
+    </div>
+
+    <div class="id-badge">
+      #51
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #51 Soul Eater Fiend
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        ShadowFriend
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v6.88x8
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD v6.86g
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $11
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+        <button
+          class="youtube-link"
+          type="button"
+          data-video="https://www.youtube.com/watch?v=VNs83grQY7M"
+          aria-label="Watch Soul Eater Fiend video"
+        >
+          ▶ Video
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #52
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="52 Elite Assassin Rikimaru DotA v6.88x8 LoD v6.86g"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/EHi2e6m.jpg"
+      alt="#52 Elite Assassin"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#52</small>
+    </div>
+
+    <div class="id-badge">
+      #52
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #52 Elite Assassin
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Rikimaru
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v6.88x8
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD v6.86g
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $6
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+        <button
+          class="youtube-link"
+          type="button"
+          data-video="https://www.youtube.com/watch?v=ht43IaVdX_g"
+          aria-label="Watch Elite Assassin video"
+        >
+          ▶ Video
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #53
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="53 Halloween Sniper Sniper DotA v6.88x8 LoD v6.86g"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/vYEmNc7.jpg"
+      alt="#53 Halloween Sniper"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#53</small>
+    </div>
+
+    <div class="id-badge">
+      #53
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #53 Halloween Sniper
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Sniper
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v6.88x8
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD v6.86g
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $11
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+        <button
+          class="youtube-link"
+          type="button"
+          data-video="https://www.youtube.com/watch?v=-y5n9_WfT_o"
+          aria-label="Watch Halloween Sniper video"
+        >
+          ▶ Video
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #56
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota only"
+  data-search="56 Monkey King 2 Monkey King DotA v6.89a0 LoD unavailable"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/uX4IAhF.jpg"
+      alt="#56 Monkey King 2"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#56</small>
+    </div>
+
+    <div class="id-badge">
+      #56
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #56 Monkey King 2
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Monkey King
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v6.89a0
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        Unavailable
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $10
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag tag-muted">
+          LoD N/A
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #65
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="65 Bounty Hunter Gondar DotA v6.88a6 LoD v6.86g"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/s9ge62L.jpg"
+      alt="#65 Bounty Hunter"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#65</small>
+    </div>
+
+    <div class="id-badge">
+      #65
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #65 Bounty Hunter
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Gondar
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v6.88a6
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD v6.86g
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $10
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+        <button
+          class="youtube-link"
+          type="button"
+          data-video="https://www.youtube.com/watch?v=HJpzyKeyF9U"
+          aria-label="Watch Bounty Hunter video"
+        >
+          ▶ Video
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+<!-- =========================
+     #66
+========================= -->
+
+<article
+  class="skin-card"
+  data-tags="dota lod"
+  data-search="66 Medusa Gorgon Medusa DotA v6.88a6 LoD v6.86g"
+>
+
+  <div class="card-image">
+
+    <img
+      src="https://i.imgur.com/3SCNH0I.jpg"
+      alt="#66 Medusa Gorgon"
+      loading="lazy"
+      decoding="async"
+      onerror="this.closest('.card-image').classList.add('image-error');this.style.display='none';"
+    >
+
+    <div class="image-fallback">
+      <span>IMAGE UNAVAILABLE</span>
+      <small>#66</small>
+    </div>
+
+    <div class="id-badge">
+      #66
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div class="skin-name">
+      #66 Medusa Gorgon
+    </div>
+
+    <div class="skin-meta">
+
+      <p>
+        <strong>Works on:</strong>
+        Medusa
+      </p>
+
+      <p class="version-line">
+        <strong>Available since:</strong>
+        DotA v6.88a6
+
+        <span class="version-separator">
+          •
+        </span>
+
+        <strong>LoD:</strong>
+        LoD v6.86g
+      </p>
+
+    </div>
+
+
+    <div class="card-bottom">
+
+      <span class="price-tag">
+        $10
+      </span>
+
+      <div class="tag-row">
+
+        <span class="tag">
+          Dota
+        </span>
+
+        <span class="tag">
+          LoD
+        </span>
+
+        <button
+          class="youtube-link"
+          type="button"
+          data-video="https://www.youtube.com/watch?v=qTNSVvxL2cA"
+          aria-label="Watch Medusa Gorgon video"
+        >
+          ▶ Video
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+</main>
+
+
+
+<div
+  class="no-results"
+  id="noResults"
+>
+  No skins found.
+</div>
+
+
+
+<script>
+
+/* =========================
+   SEARCH
+========================= */
+
+const searchInput =
+  document.getElementById(
+    "searchInput"
+  );
+
+const cards =
+  [
+    ...document.querySelectorAll(
+      ".skin-card"
+    )
+  ];
+
+const resultCount =
+  document.getElementById(
+    "resultCount"
+  );
+
+const noResults =
+  document.getElementById(
+    "noResults"
+  );
+
+
+function updateCards(){
+
+  const search =
+    searchInput.value
+      .trim()
+      .toLowerCase();
+
+  let visible = 0;
+
+
+  cards.forEach(card => {
+
+    const text =
+      (
+        card.dataset.search || ""
+      ).toLowerCase();
+
+
+    const show =
+      !search ||
+      text.includes(search);
+
+
+    card.classList.toggle(
+      "hidden",
+      !show
+    );
+
+
+    if(show){
+      visible++;
+    }
+
+  });
+
+
+  resultCount.textContent =
+    `${visible} ${
+      visible === 1
+        ? "skin"
+        : "skins"
+    }`;
+
+
+  noResults.style.display =
+    visible
+      ? "none"
+      : "block";
+}
+
+
+searchInput.addEventListener(
+  "input",
+  updateCards
+);
+
+
+/* =========================
+   CURSOR FOLLOWING CARD LIGHT
+========================= */
+
+cards.forEach(card => {
+
+  card.addEventListener(
+    "pointermove",
+    event => {
+
+      const rect =
+        card.getBoundingClientRect();
+
+
+      const x =
+        (
+          (
+            event.clientX -
+            rect.left
+          ) /
+          rect.width
+        ) * 100;
+
+
+      const y =
+        (
+          (
+            event.clientY -
+            rect.top
+          ) /
+          rect.height
+        ) * 100;
+
+
+      card.style.setProperty(
+        "--mx",
+        `${x}%`
+      );
+
+
+      card.style.setProperty(
+        "--my",
+        `${y}%`
+      );
+
+    }
+  );
+
+
+  card.addEventListener(
+    "pointerleave",
+    () => {
+
+      card.style.setProperty(
+        "--mx",
+        "50%"
+      );
+
+
+      card.style.setProperty(
+        "--my",
+        "50%"
+      );
+
+    }
+  );
+
+});
+
+
+/* =========================
+   YOUTUBE
+   OPEN IN NEW TAB
+========================= */
+
+document
+  .querySelectorAll(
+    ".youtube-link"
+  )
+  .forEach(button => {
+
+    button.addEventListener(
+      "click",
+      () => {
+
+        const videoUrl =
+          button.dataset.video;
+
+
+        if(!videoUrl){
+          return;
+        }
+
+
+        window.open(
+          videoUrl,
+          "_blank",
+          "noopener,noreferrer"
+        );
+
+      }
+    );
+
+  });
+
+
+/* =========================
+   INITIALIZE
+========================= */
+
+updateCards();
+
+</script>
+
+
+</body>
+</html>
